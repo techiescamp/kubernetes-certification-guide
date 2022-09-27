@@ -19,10 +19,10 @@ Vagrant.configure("2") do |config|
     (1..2).each do |i|
   
     config.vm.define "node0#{i}" do |node|
-      node01.vm.box = "bento/ubuntu-22.04"
-      node01.vm.hostname = "worker-node0#{i}"
-      node01.vm.network "private_network", ip: "10.0.0.1#{i}"
-      node01.vm.provider "virtualbox" do |vb|
+      node.vm.box = "bento/ubuntu-22.04"
+      node.vm.hostname = "worker-node0#{i}"
+      node.vm.network "private_network", ip: "10.0.0.1#{i}"
+      node.vm.provider "virtualbox" do |vb|
           vb.memory = 2048
           vb.cpus = 1
       end
