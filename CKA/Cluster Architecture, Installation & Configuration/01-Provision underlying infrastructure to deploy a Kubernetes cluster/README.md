@@ -1,17 +1,11 @@
+
+## Underlying Infrastructure Setup for Kubernetes
 <pre>
-## Underlying Infrastructure of Kubernetes
-
-#!/bin/bash
-#
-# Common setup for all servers (Control Plane and Nodes)
-
-set -euxo pipefail
-
-# Variable Declaration
 
 KUBERNETES_VERSION="1.23.6-00"
 
 # disable swap
+
 sudo swapoff -a
 
 # keeps the swaf off during reboot
