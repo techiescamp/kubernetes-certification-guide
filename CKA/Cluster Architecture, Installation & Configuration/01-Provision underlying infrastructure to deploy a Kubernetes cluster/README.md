@@ -5,23 +5,31 @@
 
 KUBERNETES_VERSION="1.23.6-00"
 
-# disable swap
+```
 
+## disable swap
+
+```
 sudo swapoff -a
-
-# keeps the swaf off during reboot
+```
+## keeps the swaf off during reboot
+```
 (crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
 sudo apt-get update -y
 
+```
+## Install CRI-O Runtime
 
-# Install CRI-O Runtime
-
+```
 OS="xUbuntu_20.04"
 
 VERSION="1.23"
 
-# Create the .conf file to load the modules at bootup
+```
 
+## Create the .conf file to load the modules at bootup
+
+```
 cat <<EOF | sudo tee /etc/modules-load.d/crio.conf
 overlay
 br_netfilter
@@ -29,8 +37,10 @@ EOF
 
 sudo modprobe overlay
 sudo modprobe br_netfilter
+```
 
-# Set up required sysctl params, these persist across reboots.
+## Set up required sysctl params, these persist across reboots.
+```
 cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
 net.bridge.bridge-nf-call-iptables  = 1
 net.ipv4.ip_forward                 = 1
@@ -56,9 +66,11 @@ sudo systemctl daemon-reload
 sudo systemctl enable crio --now
 
 echo "CRI runtime installed susccessfully"
+```
 
-# Install kubelet, kubectl and Kubeadm
+## Install kubelet, kubectl and Kubeadm
 
+```
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -74,6 +86,7 @@ local_ip="$(ip --json a s | jq -r '.[] | if .ifname == "eth1" then .addr_info[] 
 cat > /etc/default/kubelet << EOF
 KUBELET_EXTRA_ARGS=--node-ip=$local_ip
 EOF
-
 ```
+
+
 
