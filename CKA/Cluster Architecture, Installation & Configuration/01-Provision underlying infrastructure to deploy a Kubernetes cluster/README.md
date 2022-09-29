@@ -1,5 +1,6 @@
 
 ## Underlying Infrastructure Setup for Kubernetes
+
 <pre>
 
 KUBERNETES_VERSION="1.23.6-00"
@@ -20,6 +21,7 @@ OS="xUbuntu_20.04"
 VERSION="1.23"
 
 # Create the .conf file to load the modules at bootup
+
 cat <<EOF | sudo tee /etc/modules-load.d/crio.conf
 overlay
 br_netfilter
