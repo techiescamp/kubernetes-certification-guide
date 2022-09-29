@@ -3,8 +3,8 @@
 Official Documentation: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
 
 Search Query: creat cluster with kubeadm
-<pre>
 
+```
 MASTER_IP="10.0.0.10"
 NODENAME=$(hostname -s)
 POD_CIDR="192.168.0.0/16"
@@ -17,14 +17,13 @@ mkdir -p "$HOME"/.kube
 sudo cp -i /etc/kubernetes/admin.conf "$HOME"/.kube/config
 sudo chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config
 
-</pre>
+```
 
-## Network Plugin Installtion
+## Install Claico Network Plugin Network 
 
-<pre>
-# Install Claico Network Plugin Network 
+```
 
 curl https://docs.projectcalico.org/manifests/calico.yaml -O
 
 kubectl apply -f calico.yaml
-</pre>
+```
