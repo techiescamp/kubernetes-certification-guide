@@ -1,5 +1,8 @@
 ## Kubeadm Cluster Installtion
 
+Official Documentation: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+
+Search Query: creat cluster with kubeadm
 <pre>
 
 MASTER_IP="10.0.0.10"
