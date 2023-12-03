@@ -1,0 +1,1 @@
+$ docker run --runtime=sysbox-runc -d --rm --name=k8s-master --hostname=k8s-master techiescamp/k8s-node:1.128.1
