@@ -3,7 +3,7 @@ settings = YAML.load_file(File.join(File.dirname(__FILE__), 'settings.yaml'))
 
 Vagrant.configure("2") do |config|
   config.vm.box = settings['box_name']
-  config.vm.box_version = settings['box_version']
+  # config.vm.box_version = settings['box_version']
   config.vm.box_check_update = false
 
   settings['vm'].each do |vm_config|
